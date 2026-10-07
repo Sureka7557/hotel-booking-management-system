@@ -1,0 +1,101 @@
+/* ===========================
+   FEATURED — City Cards
+   =========================== */
+
+.featured {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1280px;
+  margin: 80px auto 40px; /* Margin top handles spacing from search bar */
+  padding: 0 20px;
+}
+
+.featuredItem {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 280px; /* Desktop Height */
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featuredItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.featuredImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featuredItem:hover .featuredImg {
+  transform: scale(1.07);
+}
+
+.featuredTitles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 18px;
+  background: linear-gradient(to top, rgba(26, 26, 46, 0.95) 0%, transparent 100%);
+  color: var(--text-light);
+}
+
+.featuredTitles h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.featuredTitles h2 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+/* Tablet View */
+@media (max-width: 900px) {
+  .featured {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 60px;
+    gap: 14px;
+  }
+
+  .featuredItem {
+    height: 220px; /* Uniform height for all cards on tablet */
+  }
+  
+  /* If you specifically want the last item to be large, uncomment below: */
+  /* 
+  .featuredItem:last-child {
+    grid-column: span 2;
+    height: 280px; 
+  } 
+  */
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 50px;
+    padding: 0 14px;
+  }
+
+  .featuredItem {
+    height: 220px;
+  }
+
+  .featuredItem:last-child {
+    grid-column: span 1;
+  }
+}

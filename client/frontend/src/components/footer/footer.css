@@ -1,0 +1,109 @@
+/* ===========================
+   FOOTER — LuxeStay Theme
+   =========================== */
+
+.footer {
+  background: var(--primary);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 28px;
+  /* FIX: Ensure no margin/gap on sides or bottom */
+  margin: 0;
+  width: 100%;
+}
+
+.fLists {
+  max-width: 1280px;
+  margin: 0 auto 32px;
+  padding: 0 40px;         /* FIX: padding inside, not on .footer */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.fList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.fListItem {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.fListItem:first-child {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.fListItem:hover {
+  color: var(--text-light);
+}
+
+.fText {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 40px 0;    /* FIX: matching side padding */
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Laptop */
+@media (max-width: 1100px) {
+  .fLists {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 28px;
+  }
+
+  .fText {
+    padding: 24px 28px 0;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .footer {
+    padding: 36px 0 24px;
+  }
+
+  .fLists {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .fText {
+    padding: 20px 20px 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer {
+    padding: 28px 0 20px;
+  }
+
+  .fLists {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .fText {
+    padding: 16px 16px 0;
+  }
+
+  .fListItem {
+    font-size: 0.78rem;
+  }
+}

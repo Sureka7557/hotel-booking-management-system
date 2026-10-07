@@ -1,0 +1,143 @@
+:root {
+  --navy-dark: #002560;
+  --navy: #003580;
+  --navy-light: #004cb3;
+  --gold: #febb02;
+  --gold-dark: #e0a800;
+  --text-muted: #c8d6f0;
+}
+
+.trip {
+  width: 100%;
+  background: linear-gradient(to right, #001435, #3e5067);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 20px;
+}
+
+.tripHeading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rocketIcon {
+  font-size: 40px;
+  color: var(--gold);
+}
+
+.tripTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.tripDesc {
+  font-size: 18px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.tripContainer {
+  width: 100%;
+  max-width: 850px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+}
+
+.inputBox {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  background-color: #eef3fb;
+  border-radius: 10px;
+  padding: 0 15px;
+  border: 1.5px solid #d0dff5;
+  transition: border-color 0.2s;
+}
+
+.inputBox:focus-within {
+  border-color: var(--navy);
+}
+
+.inputIcon {
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #1a2a4a;
+}
+
+.tripContainer button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--gold);
+  color: var(--navy-dark);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.tripContainer button:hover {
+  transform: translateY(-3px);
+  background-color: var(--gold-dark);
+}
+
+.btnIcon {
+  font-size: 18px;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 80, 80, 0.18);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #ffd0d0;
+}
+
+.tripResult {
+  width: 100%;
+  max-width: 850px;
+  background-color: rgba(69, 55, 55, 0.1);
+  border: 1px solid rgba(254, 187, 2, 0.25);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tripItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: #e8f0ff;
+}

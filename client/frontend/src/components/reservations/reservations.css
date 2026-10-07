@@ -1,0 +1,217 @@
+/* ===========================
+   RESERVATIONS PAGE
+   =========================== */
+
+.reservationsContainer {
+  max-width: 860px;
+  margin: 48px auto 60px;
+  padding: 0 20px;
+}
+
+.resTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: rgb(181, 146, 55);
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid rgb(181, 146, 55);
+}
+
+.resLoading,
+.resEmpty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 48px 0;
+  font-size: 1rem;
+}
+
+.resList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.reservationCard {
+  display: flex;
+  background: var(--primary-mid);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.reservationCard:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  border-color: var(--accent);
+}
+
+.cardAccent {
+  width: 5px;
+  background: var(--accent);
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+.cardContent {
+  flex: 1;
+  padding: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cardLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cardHotelName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.cardCity {
+  display: flex;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  align-items: center; /* Centers icon with text vertically */
+  gap: 6px; /* Space between icon and city name */
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cityLocationIcon {
+  color: #866f32; /* LuxeStay Gold Accent */
+  font-size: 16px;
+  flex-shrink: 0; /* Prevents icon from squishing */
+}
+.nightsBadge {
+  background: rgba(232,184,109,0.15);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border-radius: 20px;
+  padding: 6px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cardDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
+}
+
+.cardRow {
+  margin-bottom: 14px;
+}
+
+.roomPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.roomPill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.cardDates {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dateValue {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.dateArrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.dateBlockRight {
+  text-align: right;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1.5px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .reservationsContainer {
+    padding: 0 14px;
+    margin-top: 32px;
+  }
+
+  .cardContent {
+    padding: 16px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cardDates {
+    gap: 8px;
+  }
+
+  .dateArrow {
+    display: none;
+  }
+
+  .dateBlock, .dateBlockRight {
+    text-align: left;
+  }
+}

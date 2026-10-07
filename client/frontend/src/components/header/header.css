@@ -1,0 +1,435 @@
+/* ===========================
+   HEADER — LuxeStay Theme
+   =========================== */
+
+/* FIX: Prevent any ancestor from causing horizontal overflow/shift */
+html, body, #root {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #003580;
+  --primary-mid: #002050;
+  --accent: #febb02;
+  --accent-hover: #e5a800;
+  --text-light: #ffffff;
+  --text-muted: #dbe4ef;
+  --border: rgba(255, 255, 255, 0.2);
+  --font-main: 'DM Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+/* --- Main Header Container --- */
+.header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 60%, #0f3460 100%);
+  color: var(--text-light);
+  padding-bottom: 70px;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  overflow: visible !important;
+  /* FIX: Prevent horizontal scroll/clipping */
+  box-sizing: border-box;
+}
+
+/* Subtle glow background */
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: 0;           /* FIX: was -80px, causing right overflow */
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(232, 184, 109, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.headerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  /* FIX: Must be overflow visible so calendar can escape */
+  overflow: visible;
+}
+
+/* --- Nav Tabs --- */
+.headerList {
+  display: flex;
+  gap: 6px;
+  padding: 16px 0 0;
+  flex-wrap: wrap;
+}
+
+.headerListItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.headerListItem:hover {
+  color: var(--text-light);
+  border-color: var(--border);
+}
+
+.headerListItem.active {
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: rgba(232, 184, 109, 0.08);
+}
+
+/* --- Hero Text --- */
+.headerTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  margin: 36px 0 14px;
+  color: var(--text-light);
+  line-height: 1.2;
+  max-width: 620px;
+}
+
+.headerDesc {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* --- Search Bar --- */
+.headerSearch {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 6px;
+  margin-bottom: -50px; /* FIX: pulls featured section up to overlap search bar */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  /* FIX: Creates a new stacking context so z-index on children works correctly */
+  position: relative;
+  z-index: 200;
+  /* FIX: Must be visible so calendar floats outside */
+  overflow: visible;
+}
+
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  flex: 1;
+  min-width: 160px;
+  /* FIX: Each item is a positioned ancestor for its dropdown */
+  position: relative;
+  border-right: 1px solid var(--border);
+  overflow: visible !important;
+}
+
+.headerSearchItem:last-child {
+  border-right: none;
+  flex: 0;
+  min-width: auto;
+  padding: 6px;
+}
+
+.headerIcon {
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.headerSearchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  width: 100%;
+  font-family: var(--font-main);
+}
+
+.headerSearchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.headerSearchText {
+  color: var(--text-light);
+  font-size: 0.88rem;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerBtn {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  padding: 13px 28px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-main);
+  transition: all 0.2s;
+}
+
+.headerBtn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232, 184, 109, 0.35);
+}
+
+/* --- Dropdowns (Date & Options) --- */
+/* 
+  FIX: The core problem — these were z-index: 9999 but their
+  stacking context was trapped inside a lower-z parent.
+  Solution: position them relative to .headerSearchItem (which
+  is now position:relative + overflow:visible) and use a high
+  z-index that escapes the search bar's stacking context.
+*/
+.date,
+.options {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 9999;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  /* FIX: Removed from layout flow so it doesn't push content down */
+  pointer-events: auto;
+}
+
+.options {
+  background: var(--primary-mid);
+  border: 1px solid var(--border);
+  padding: 14px;
+  min-width: 220px;
+  overflow: visible;
+  /* FIX: Keep it on top without affecting surrounding layout */
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 9999;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.optionItem:last-child {
+  border-bottom: none;
+}
+
+.optionText {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.optionCounterButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+}
+
+.optionCounterButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.optionCounterNumber {
+  color: var(--text-light);
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ===========================
+   RESPONSIVE MEDIA QUERIES
+   =========================== */
+
+/* --- Tablet Landscape (Stack Search) --- */
+@media (max-width: 992px) {
+  .headerSearch {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    /* FIX: Stronger negative margin to pull the next section up on mobile */
+    margin-bottom: -28px;
+    overflow: visible;
+  }
+
+  .headerSearchItem {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    padding: 12px 14px;
+    /* FIX: Remove the z-index that was fighting the dropdown */
+    position: relative;
+    overflow: visible !important;
+  }
+
+  .headerSearchItem:last-child {
+    border-bottom: none;
+  }
+
+  .headerBtn {
+    width: 100%;
+    border-radius: 10px;
+    /* FIX: Removed z-index: -999 which was hiding the button on some browsers */
+  }
+
+  /* FIX: On tablet/mobile, open calendar UPWARD and scale it down */
+  .date {
+    bottom: calc(100% + 8px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: bottom center;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .options {
+    bottom: calc(100% + 8px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: bottom center;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* --- Tablet / Mobile Portrait --- */
+@media (max-width: 768px) {
+  .header {
+    /* FIX: Reduced padding so stacked search bar doesn't create a gap below */
+    padding-bottom: 50px;
+  }
+
+  .headerContainer {
+    padding: 0 16px;
+  }
+
+  /* Nav Scroll */
+  .headerList {
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+
+  .headerList::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text Sizing */
+  .headerTitle {
+    font-size: 1.6rem;
+    margin-top: 20px;
+  }
+
+  .headerDesc {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  /* FIX: Calendar opens upward, centered, doesn't cover Search button */
+  .date {
+    bottom: calc(100% + 8px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) scale(0.72);
+    transform-origin: bottom center;
+    width: auto;
+    max-width: 100%;
+    z-index: 9999;
+  }
+
+  .options {
+    bottom: calc(100% + 8px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) scale(0.72);
+    transform-origin: bottom center;
+    width: auto;
+    max-width: 100%;
+    z-index: 9999;
+  }
+}
+
+/* --- Small Mobile (iPhone SE) --- */
+@media (max-width: 576px) {
+  .headerTitle {
+    font-size: 1.4rem;
+  }
+
+  .headerSearch {
+    padding: 8px;
+    gap: 0;
+  }
+
+  .headerSearchItem {
+    padding: 10px 12px;
+  }
+
+  .headerBtn {
+    font-size: 0.9rem;
+  }
+
+  .headerDesc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* FIX: Smallest screens — shrink calendar more */
+  .date,
+  .options {
+    transform: translateX(-50%) scale(0.65);
+    transform-origin: bottom center;
+  }
+}

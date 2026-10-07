@@ -1,0 +1,56 @@
+.navbar {
+  height: 60px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #7451f8;
+}
+
+
+.slogan {
+  font-size: 19px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sloganIcon {
+  font-size: 19px;
+  color: #7451f8;
+}
+/* RIGHT */
+.right span{
+  display: flex;
+  gap: 15px;
+}
+.greeting {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+}
+
+.adminIcon {
+  font-size: 22px;
+  color: #deac56;
+}

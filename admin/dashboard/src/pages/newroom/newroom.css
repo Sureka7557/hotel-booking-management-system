@@ -1,0 +1,75 @@
+.newRoom {
+  flex: 6;
+}
+
+.newRoom .container {
+  margin: 20px;
+}
+
+.newRoom .container h1 {
+  color: #555;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.newRoom .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Inputs */
+.newRoom .form input,
+.newRoom .form textarea,
+.newRoom .form select {
+  width: 250px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Textarea height */
+.newRoom .form textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Focus effect */
+.newRoom .form input:focus,
+.newRoom .form textarea:focus,
+.newRoom .form select:focus {
+  border-bottom: 1px solid teal;
+}
+
+/* Button */
+.newRoom .form button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+/* Hover */
+.newRoom .form button:hover {
+  background-color: #006d6d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newRoom .form {
+    flex-direction: column;
+  }
+
+  .newRoom .form input,
+  .newRoom .form textarea,
+  .newRoom .form select {
+    width: 100%;
+  }
+}

@@ -1,0 +1,75 @@
+/* ===========================
+   HOTEL STATS — Fixed Color Issue
+   =========================== */
+
+.hotelStats {
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid #eef2f8;
+  overflow: hidden; /* Ensures 100% bar stays inside radius */
+}
+
+.hotelStats h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 20px 0;
+}
+
+/* --- Progress Bar Container --- */
+.barContainer {
+  width: 100%;
+  height: 16px; 
+  background-color: #f0f2f5; /* Light grey track (empty state) */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- FIXED FILL BAR --- */
+.barFill {
+
+  height: 100%;
+  
+  /* Purple Gradient */
+  background: linear-gradient(90deg, #c1b0ff 0%, #8c6dfd 100%);
+  
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+}
+
+/* --- Percentage Text --- */
+.hotelStats > p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 8px 0 24px 0;
+  text-align: right;
+}
+
+/* --- Details Footer --- */
+.details-hotel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eef2f8;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.details-hotel span {
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  color: #333;
+}

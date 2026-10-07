@@ -1,0 +1,162 @@
+/* ===========================
+   ROOM STATS — LuxeStay Theme
+   =========================== */
+
+.roomStats {
+  padding: 30px;
+  width: 75%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 2px 3px rgb(147, 147, 147);
+  background-color: #f5f5f5; /* Light gray background for the section */
+}
+
+.roomStats h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: rgb(117, 117, 117);
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-left: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+/* --- Grid Layout --- */
+.room_statsGrid {
+  display: grid;
+  /* Responsive Grid: 2 columns on Tablet/Desktop, adapts to width */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+/* --- Card Styling --- */
+.room_statCard {
+  background: white;
+  padding: 20px 13px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  cursor: default;
+}
+
+.room_statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Icon Styling (Optimized for react-icons) --- */
+.room_statIcon {
+  font-size: 2rem; /* Large, crisp icon */
+  margin-bottom: 4px;
+  display: block;
+}
+
+.room_statCard h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.room_statCard p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary); /* LuxeStay Blue */
+  margin: 0;
+  line-height: 1;
+}
+
+/* --- Color Variants (Match Icons & Borders) --- */
+
+/* 1. Bookings (Blue) */
+.room_statCard--blue {
+  border-left-color: #0071c2;
+}
+.room_statCard--blue .room_statIcon {
+  color: #0071c2;
+}
+
+/* 2. Total Rooms (Navy) */
+.room_statCard--navy {
+  border-left-color: var(--primary); /* Matches LuxeStay Primary */
+}
+.room_statCard--navy .room_statIcon {
+  color: var(--primary);
+}
+
+/* 3. Profit (Green) */
+.room_statCard--green {
+  border-left-color: #28a745;
+}
+.room_statCard--green .room_statIcon {
+  color: #28a745;
+}
+
+/* 4. Loss (Red) */
+.room_statCard--red {
+  border-left-color: #dc3545;
+}
+.room_statCard--red .room_statIcon {
+  color: #dc3545;
+}
+
+/* ===========================
+   RESPONSIVE MEDIA QUERIES
+   =========================== */
+
+/* Tablet & Small Desktop */
+@media (max-width: 992px) {
+  .room_statsGrid {
+    grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+    gap: 15px;
+  }
+  
+  .room_statIcon {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 600px) {
+  .roomStats {
+    padding: 15px 10px;
+  }
+
+  /* Switch to Horizontal Rows to save vertical space */
+  .room_statsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .room_statCard {
+    flex-direction: row; /* Icon left, Text right */
+    justify-content: space-between;
+    padding: 15px 20px;
+    text-align: left;
+    border-left-width: 6px; /* Thicker accent bar */
+  }
+
+  .room_statCard h3 {
+    font-size: 0.9rem;
+  }
+
+  .room_statCard p {
+    font-size: 1.2rem;
+  }
+
+  .room_statIcon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,132 @@
+/* ===========================
+   NAVBAR — LuxeStay Theme
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary: #1a1a2e;
+  --primary-mid: #16213e;
+  --accent: #e8b86d;
+  --accent-hover: #f0c97a;
+  --text-light: #f5f0e8;
+  --text-muted: #a8a0b4;
+  --surface: rgba(255,255,255,0.06);
+  --border: rgba(232, 184, 109, 0.2);
+  --radius: 10px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.navbar {
+  background: var(--primary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow);
+}
+
+.navContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.headerBrand {
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navUsername {
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navButton {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.navButton:hover {
+  background: var(--accent);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .navContainer {
+    height: 56px;
+    padding: 0 16px;
+  }
+  .brandName {
+    font-size: 1.4rem;
+  }
+  .navButton {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  .navUsername {
+    max-width: 80px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navContainer {
+    height: 52px;
+    padding: 0 12px;
+  }
+  .brandName {
+    font-size: 1.2rem;
+  }
+  .navItems {
+    gap: 7px;
+  }
+  .navButton {
+    padding: 5px 10px;
+    font-size: 0.76rem;
+  }
+}

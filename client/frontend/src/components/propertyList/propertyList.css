@@ -1,0 +1,91 @@
+/* ===========================
+   PROPERTY LIST — Type Cards
+   =========================== */
+
+.pList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto 48px;
+  padding: 0 20px;
+}
+
+.pListItem {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--primary-mid);
+}
+
+.pListItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+}
+
+.pListImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pListItem:hover .pListImg {
+  transform: scale(1.05);
+}
+
+.pListTitles {
+  padding: 10px 12px 12px;
+  background: var(--primary-mid);
+}
+
+.pListTitles h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: capitalize;
+  margin-bottom: 3px;
+}
+
+.pListTitles h2 {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+/* Laptop */
+@media (max-width: 1100px) {
+  .pList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .pList {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 16px;
+  }
+
+  .pListImg {
+    height: 140px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .pList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .pListImg {
+    height: 120px;
+  }
+}

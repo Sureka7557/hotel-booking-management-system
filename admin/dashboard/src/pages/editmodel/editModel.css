@@ -1,0 +1,188 @@
+.editOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.editModal {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.editModal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.editModal__header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.editModal__close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+  padding: 4px 6px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.editModal__close:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.editModal__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.editModal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.editModal__field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.editModal__field input {
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+}
+
+.editModal__field input:focus {
+  border-color: #4f6ef7;
+  background: #fff;
+}
+
+/* image previews */
+.editModal__previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.editModal__preview {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* file input */
+.editModal__file {
+  padding: 6px 0;
+  font-size: 13px;
+  color: #555;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* rooms multi-select */
+.editModal__select {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  background: #fafafa;
+  min-height: 130px;
+  cursor: pointer;
+}
+
+.editModal__select:focus {
+  border-color: #4f6ef7;
+}
+
+.editModal__select option {
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+.editModal__select option:checked {
+  background: #4f6ef7;
+  color: #fff;
+}
+
+.editModal__hint {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.editModal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.editModal__btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+.editModal__btn--cancel {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.editModal__btn--cancel:hover {
+  background: #e0e0e0;
+}
+
+.editModal__btn--update {
+  background: #4f6ef7;
+  color: #fff;
+}
+
+.editModal__btn--update:hover {
+  background: #3a56d4;
+}

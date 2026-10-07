@@ -1,0 +1,66 @@
+.newHotel {
+  flex: 6;
+}
+
+.newHotel .container {
+  margin: 20px;
+}
+
+.newHotel .container h1 {
+  color: #555;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.newHotel .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Inputs & Select */
+.newHotel .form input,
+.newHotel .form select {
+  width: 250px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Focus effect */
+.newHotel .form input:focus,
+.newHotel .form select:focus {
+  border-bottom: 1px solid teal;
+}
+
+/* Button */
+.newHotel .form button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.newHotel .form button:hover {
+  background-color: #006d6d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newHotel .form input,
+  .newHotel .form select {
+    width: 100%;
+  }
+
+  .newHotel .form {
+    flex-direction: column;
+  }
+}

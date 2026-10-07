@@ -1,0 +1,193 @@
+/* ===========================
+   RESERVE MODAL — LuxeStay Theme
+   =========================== */
+
+.reserve {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 10, 30, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.rContainer {
+  background: linear-gradient(160deg, var(--primary) 0%, var(--primary-mid) 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+/* Scrollbar styling */
+.rContainer::-webkit-scrollbar {
+  width: 5px;
+}
+.rContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rContainer::-webkit-scrollbar-thumb {
+  background: rgba(254, 187, 2, 0.3);
+  border-radius: 4px;
+}
+
+/* --- Close Button --- */
+.rClose {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.rClose:hover {
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* --- Title --- */
+.rTitleMain {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 22px;
+  padding-right: 30px;
+  line-height: 1.3;
+}
+
+/* --- Room Item Card --- */
+.rItem {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+.rItem:hover {
+  border-color: var(--accent);
+}
+
+.rItemInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.rTitle {
+  font-weight: 700;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.rDesc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.rPrice {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-left: auto;
+}
+
+/* --- Room Number Checkboxes --- */
+.rSelectRooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.room label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: center;
+}
+
+.room input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.room input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Reserve Button --- */
+.rButton {
+  width: 100%;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 18px;
+  font-family: var(--font-main);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.rButton:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(254, 187, 2, 0.35);
+}
+
+.rButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* --- No Rooms Message --- */
+.noRooms {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+}
+
+/* --- Mobile --- */
+@media (max-width: 480px) {
+  .rContainer {
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .rTitleMain {
+    font-size: 1.15rem;
+  }
+
+  .rSelectRooms {
+    gap: 10px;
+  }
+}
